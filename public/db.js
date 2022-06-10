@@ -16,5 +16,12 @@ request.onsuccess = function(event) {
 request.onerror = function(event) {
   const transaction = db.transaction(["pending"], "readwrite"); // create a transaction to our indexDB
   const store = transaction.objectStore("pending");             // access indexDB
-  store.add(record);                                            // add record to store
-}
+  store.add(record);                                            // add record
+};
+
+function saveRecord(record) {
+  const transaction = db.transaction(["pending"], "readwrite"); // create a transaction to indexDB
+  const store = transaction.objectStore("pending");             // access indexDB
+  store.add(record);                                            // add record
+};
+
